@@ -1,0 +1,8 @@
+.todo {
+    display: flex;
+    flex-direction: row;
+}
+
+.todo *:nth-child(2) {
+    flex: 1 0;
+}

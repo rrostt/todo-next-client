@@ -9,3 +9,13 @@
   border-bottom: 1px solid #efefef;
   margin: 3em auto;
 }
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
