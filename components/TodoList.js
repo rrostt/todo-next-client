@@ -3,12 +3,15 @@ import styles from '../styles/home.module.css';
 import { useTodos } from './useTodos';
 import { Todo } from './Todo';
 import { AddTodoForm } from './AddTodoForm'
+import Button from './Button'
 
 export const TodoList = () => {
   const {
     todos,
     addTodo,
     toggleTodo,
+    deleteTodo,
+    clearTodos,
   } = useTodos();
 
   const [filter, setFilter] = useState('all')
@@ -35,5 +38,7 @@ export const TodoList = () => {
     />)}
 
     <AddTodoForm onAdd={addTodo} />
+
+    <Button style={{ marginTop: 10 }} onClick={() => clearTodos()}>Clear</Button>
   </div>;
 };

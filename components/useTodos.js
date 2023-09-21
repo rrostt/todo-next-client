@@ -47,6 +47,15 @@ export const useTodos = () => {
     fetchTodos();
   };
 
+  const clearTodos = async () => {
+    await fetch(`${SERVER_ENDPOINT}/todos`,
+      {
+        method: 'DELETE',
+      }
+    );
+    fetchTodos();
+  };
+
   useEffect(() => {
     fetchTodos();
   }, []);
@@ -56,5 +65,6 @@ export const useTodos = () => {
     addTodo,
     toggleTodo,
     deleteTodo,
+    clearTodos,
   };
 };
