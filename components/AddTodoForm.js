@@ -11,7 +11,7 @@ export const AddTodoForm = ({ onAdd }) => {
   };
 
   return <div className={styles.column}>
-    <input type='text' value={text} onChange={e => setText(e.target.value)} />
+    <input style={{ margin: '10px 0' }} type='text' value={text} onChange={e => setText(e.target.value)} />
     <Button onClick={onClick}>Add todo</Button>
   </div>;
 };
