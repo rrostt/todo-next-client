@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styles from '../styles/home.module.css';
 import { useTodos } from './useTodos';
 import { Todo } from './Todo';
@@ -10,11 +11,29 @@ export const TodoList = () => {
     toggleTodo,
   } = useTodos();
 
+  const [filter, setFilter] = useState('all')
+
+  const filtered = todos.filter(todo => {
+    if (filter === 'done') return todo.done
+    if (filter === 'undone') return !todo.done
+    return true
+  })
+
   return <div className={styles.column}>
-    {todos.map((todo, i) => <Todo 
+    <div>
+      <button onClick={() => setFilter('done')}>Done</button>
+      <button onClick={() => setFilter('undone')}>Undone</button>
+      <button onClick={() => setFilter('all')}>All</button>
+      {filter}
+    </div>
+
+    {filtered.map((todo, i) => <Todo 
       key={i} 
       todo={todo} 
       toggle={() => toggleTodo(i)} 
+      onDelete={() => deleteTodo(i)}
     />)}
+
+    <AddTodoForm onAdd={addTodo} />
   </div>;
 };
